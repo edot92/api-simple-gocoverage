@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /simpelapi/getsimpelapi:
+    post:
+      tags:
+      - simpelapi
+      description: Get results for param array
+      operationId: SimpelapiController.Get value of  :)
+      parameters:
+      - in: body
+        name: body
+        description: value array , ex 1,2,3
+        required: true
+        schema:
+          $ref: '#/definitions/models.StructParamDeret'
+      responses:
+        "200":
+          description: '"res json"'
+          schema:
+            $ref: '#/definitions/models.ResSuccses'
+        "400":
+          description: value format error
+definitions:
+  .false:
+    type: object
+  models.ResSuccses:
+    title: ResSuccses
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/402.0xc4200116e0.false'
+      message:
+        type: string
+  models.StructParamDeret:
+    title: StructParamDeret
+    type: object
+    properties:
+      param_deret:
+        type: array
+        items:
+          type: integer
+          format: int64
+tags:
+- name: simpelapi
+  description: |
+    SimpelapiController ...
